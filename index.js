@@ -49,7 +49,6 @@ app.post('/geochart', async (req, res) => {
                   datalessRegionColor: '#D0D0D0',
                   defaultColor: '#D0D0D0', 
                   legend: 'none',
-                  // Ensure we show the world or specific region? Default is world.
                 };
 
                 var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
@@ -72,11 +71,10 @@ app.post('/geochart', async (req, res) => {
         </html>
         `;
 
-
     await page.setContent(htmlContent);
 
     // Wait for chart ready signal
-    await page.waitForFunction('window.chartReady === true', { timeout: 10000 });
+    await page.waitForFunction('window.chartReady === true', { timeout: 30000 });
 
     const screenshot = await page.screenshot({ fullPage: true });
 
