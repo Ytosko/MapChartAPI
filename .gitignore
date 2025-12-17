@@ -1,0 +1,8 @@
+node_modules/
+*.log
+.env
+chart.png
+chart_test.png
+test.json
+test_client.js
+verify_image.js
