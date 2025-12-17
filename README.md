@@ -78,6 +78,19 @@ docker-compose up -d --build
 The API will be available at `http://localhost:3000/geochart`.
 
 ### Deploying to Coolify
-1. Connect your repository to Coolify.
-2. Select **Docker Compose** as the build pack.
-3. Deploy!
+
+1. **Push your code** to a Git repository (GitHub/GitLab).
+2. Login to your **Coolify Dashboard**.
+3. Click **+ New Resource** -> **Project** -> **Production** (or your env).
+4. Select **Git Repository** (Public or Private).
+5. Paste your repository URL and select the branch (e.g., `main`).
+6. Coolify will detect the `docker-compose.yml` file.
+   - **Build Pack**: Select `Docker Compose`.
+   - **Domains**: Set your domain (e.g., `https://map-api.yourdomain.com`).
+   - **Ports**: Coolify usually auto-detects `3000`, but you can verify in Settings.
+7. Click **Deploy**.
+
+**Troubleshooting on Coolify:**
+- If the build fails, check if the `Dockerfile` is being picked up correctly.
+- Ensure the Healthcheck is passing (Coolify shows "Green" status).
+
